@@ -71,6 +71,9 @@ watch -n 1 -t kubectl get pods -n demo
 # Dans le terminal principal (spammer !!!)
 curl localhost:8081/fibonacci -H "Content-Type: application/json" -d '{"number": 10}'
 
+kubectl run -i -n demo --tty request-generator --rm --image=curlimages/curl --restart=Never -- /bin/sh -c "while sleep 0.5; do curl express:8081/fibonacci -H \"Content-Type: application/json\" -d '{\"number\": 10}'; done"
+
+
 # Suppression
 kubectl delete -f 2-prometheus-operator-crd
 kubectl delete -f 3-prometheus-operator
