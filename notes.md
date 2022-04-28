@@ -75,12 +75,12 @@ kubectl run -i -n demo --tty request-generator --rm --image=curlimages/curl --re
 
 
 # Suppression
-kubectl delete -f 2-prometheus-operator-crd
-kubectl delete -f 3-prometheus-operator
-kubectl delete -f 4-prometheus
-kubectl delete -f 5-demo
-kubectl delete -f 6-prometheus-adapter/0-adapter
-kubectl delete -f 6-prometheus-adapter/1-custom-metrics
 kubectl delete -f 6-prometheus-adapter/2-resource-metrics
+kubectl delete -f 6-prometheus-adapter/1-custom-metrics
+kubectl delete -f 6-prometheus-adapter/0-adapter
+kubectl delete -f 5-demo
+kubectl delete -f 4-prometheus
+kubectl delete -f 3-prometheus-operator
+kubectl delete -f 2-prometheus-operator-crd
 kubectl delete ns demo monitoring
 ```

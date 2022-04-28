@@ -14,13 +14,11 @@ spec:
       labels:
         app: prometheus-adapter
       name: prometheus-adapter
-      annotations:
-        checksum/config: 4b70a56e35e56c8038b94f63f0515e79f22bd49456902c2f3c3d2dd9b2474ece
     spec:
       serviceAccountName: custom-metrics-prometheus-adapter
       containers:
       - name: prometheus-adapter
-        image: "directxman12/k8s-prometheus-adapter-amd64:v0.8.4"
+        image: "k8s.gcr.io/prometheus-adapter/prometheus-adapter:v0.9.1"
         imagePullPolicy: IfNotPresent
         args:
         - /adapter
